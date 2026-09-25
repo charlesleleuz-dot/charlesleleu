@@ -1,0 +1,166 @@
+/* Définition des variables de couleurs pour une modification facile */
+:root {
+    --couleur-primaire: #1a365d; /* Bleu marine très professionnel */
+    --couleur-secondaire: #2b6cb0;
+    --fond-clair: #f7fafc;
+    --texte-sombre: #2d3748;
+    --texte-clair: #ffffff;
+}
+
+/* Réinitialisation de base pour supprimer les marges par défaut du navigateur */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    color: var(--texte-sombre);
+    line-height: 1.6;
+}
+
+/* Une classe conteneur pour centrer le contenu et limiter sa largeur */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* --- EN-TÊTE ET NAVIGATION --- */
+header {
+    background-color: var(--couleur-primaire);
+    position: sticky; /* Le menu reste en haut lors du défilement */
+    top: 0;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--texte-clair);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #90cdf4; /* Couleur plus claire au survol */
+}
+
+/* --- SECTION PRÉSENTATION --- */
+.presentation-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.texte-presentation h1 {
+    font-size: 2.5rem;
+    color: var(--couleur-primaire);
+    margin-bottom: 20px;
+}
+
+.image-presentation img {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%; /* Rend l'image ronde */
+    object-fit: cover;
+    border: 5px solid var(--couleur-primaire);
+}
+
+/* --- SECTIONS GÉNÉRALES --- */
+h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--couleur-primaire);
+    font-size: 2rem;
+}
+
+.bg-clair {
+    background-color: var(--fond-clair);
+}
+
+/* --- GRILLES (Compétences et Projets) --- */
+.grille-competences, .grille-projets {
+    display: grid;
+    /* Crée des colonnes qui s'adaptent automatiquement à l'écran */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* Cartes pour les compétences et les projets */
+.carte-competence, .carte-projet {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Petite ombre légère */
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.carte-competence:hover, .carte-projet:hover {
+    transform: translateY(-5px); /* Animation de soulèvement au survol */
+}
+
+.carte-competence h3, .carte-projet h3 {
+    margin-bottom: 15px;
+    color: var(--couleur-secondaire);
+}
+
+/* --- PIED DE PAGE ET CONTACT --- */
+footer {
+    background-color: var(--couleur-primaire);
+    color: var(--texte-clair);
+    text-align: center;
+    padding: 60px 20px;
+}
+
+footer h2 {
+    color: var(--texte-clair);
+}
+
+.bouton-contact {
+    display: inline-block;
+    background-color: white;
+    color: var(--couleur-primaire);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.bouton-contact:hover {
+    background-color: #e2e8f0;
+}
+
+/* --- RESPONSIVE (Écrans mobiles) --- */
+@media (max-width: 768px) {
+    .presentation-flex {
+        flex-direction: column-reverse; /* Met l'image au-dessus du texte sur mobile */
+        text-align: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+}
